@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>A Meme is a Terrible thing to waste</title>
+</head>
+<!--Project from Rithm School: create a meme generator in browser
+    -HTML, CSS, vanilla JS only!!!
+    -form that accepts: completed 1/15/2020
+        *url of image
+        *top text
+        *bottom text
+        *submit button
+    -hit submit button => div with new meme appended to DOM && form cleared
+        *multiple submits adds each subsequent meme
+    -user should be able to clear each individual meme VIA JS
+    -style it pretty
+-->
+<body>
+
+    <form action="#">
+        <div>
+            <label for="imageURL">Enter URL for image</label>
+            <input type="text" id="imageURL">
+            </div>
+        <div>
+            <label for="topText">Enter top text of meme</label>
+                <input type="text" id="topText">
+            </div>
+        <div>
+            <label for="bottomText">Enter bottom text of meme</label>
+                <input type="text" id="bottomText">
+            </div>
+        <div>
+            <button onclick="appendMeme()">Create Meme</button>
+        </div>    
+    </form>
+
+<script>
+    var container = document.createElement("div");
+    var pic = document.createElement("img"); 
+
+    //function to assign input values to variables
+    function appendMeme(){
+            pic.src = document.getElementById("imageURL").value;
+            var topT = document.createElement("div");
+            topT.innerHTML = document.getElementById("topText").value;
+            var bottomT = document.createElement("div");
+            bottomT.innerHTML = document.getElementById("bottomText").value;
+            document.body.appendChild(container.appendChild(topT)); //creates container and only adds topT, how do i access this div again to add botomT and pic
+    }
+
+
+
+
+</script>
+</body>
+</html>
