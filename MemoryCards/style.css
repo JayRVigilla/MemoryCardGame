@@ -1,0 +1,13 @@
+#table{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.back{
+    background-color: crimson;
+    margin-left: -30px;
+}
+
+.front{
+}
