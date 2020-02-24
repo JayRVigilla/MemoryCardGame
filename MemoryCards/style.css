@@ -20,11 +20,11 @@ body{
 }
 
 .front{
-    margin-left: 15px;
+    margin-left: 24px;
     margin-bottom: 10px;
 }
 
 .card{
- width: calc(25% - 10px);   
+ width: calc(25% - 13px);   
  height: calc(25% - 10px);
 }
