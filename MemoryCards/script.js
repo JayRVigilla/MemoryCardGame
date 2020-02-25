@@ -19,6 +19,7 @@ var first, second;
     facesF = document.querySelectorAll('.front'),
     facesB = document.querySelectorAll('.back'),
     turns = 0;
+    lockBoard = false;
     flipped = document.querySelectorAll('.flipped');
 
 
@@ -63,18 +64,23 @@ function cleared(){
 
 
 function faceDown(){
+  lockBoard = true;
   let flipt = document.querySelectorAll('.flipped');
     flipt.forEach(function(a){
       if(a.classList.contains('card')){
         // add timer so that player can see the second card before flipping over
-        setTimeout(function(){a.lastChild.style.opacity = '1'},1000);
+        setTimeout(function(){
+          a.lastChild.style.opacity = '1';
+          lockBoard = false;
+        },1000);
       }});
     flipt.forEach(c => c.classList.remove('flipped'));
     };
 
 
   function flip(){ // ** PROBLEM ** can quickly click on three cards, need to see no more than two
-    if (!event.target.parentElement.classList.contains('flipped') || second === undefined){
+    if (lockBoard) return;
+    if (!event.target.parentElement.classList.contains('flipped')){
       event.target.style.opacity = '0';
       event.target.parentElement.classList.add('flipped');
       turns += 1;
