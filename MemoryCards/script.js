@@ -43,12 +43,14 @@ window.onload = function(){
 
 // New Game Button shuffles new game
 document.getElementById('newgame').addEventListener('click', function(){
-  cleared();
-  faceDown();
-  shuffle();
-  turns = 0;
-  document.getElementById('counter').innerHTML = turns.toString();
+    cleared();
+    faceDown();
+    shuffle();
+    turns = 0;
+    lockBoard = false;
+    document.getElementById('counter').innerHTML = turns.toString();
 });
+
   function shuffle(){
     cards.forEach(card =>{
       card.lastChild.style.opacity = '1';
